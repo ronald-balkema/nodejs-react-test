@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:14-alpine'     
+            image 'node:6-alpine'     
 			args '--network host -p 3000:3000'			
         }
     }
@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-				sh 'chmod 777 ./jenkins/scripts/*'
+				sh 'chmod 777 -R *'
 				sh 'npm install'		
             }
         }
