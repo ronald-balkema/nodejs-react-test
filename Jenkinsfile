@@ -10,7 +10,9 @@ pipeline {
     }
     stages {
 		stage('Wait') {
-			input message: "Approve build?"
+			steps {
+				def returnValue = input message: 'Need some input', parameters: [string(defaultValue: '', description: '', name: 'Give me a value')]
+			}
 		}
         stage('Build') { 
             steps {
