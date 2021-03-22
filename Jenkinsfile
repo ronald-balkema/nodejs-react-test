@@ -17,8 +17,6 @@ pipeline {
 		}
         stage('Build') { 
             steps {
-				sh 'df'
-				sh 'ping -c 3 www.google.com'
 				sh 'npm install'		
             }
         }
