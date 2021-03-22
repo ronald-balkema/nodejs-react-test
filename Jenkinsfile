@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'node:14-alpine'            
+            image 'node:14-alpine'     
+			args '--network host -p 3000:3000'			
         }
     }
 	environment {
