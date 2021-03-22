@@ -11,7 +11,9 @@ pipeline {
     stages {
 		stage('Wait') {
 			steps {
-				def returnValue = input message: 'Need some input', parameters: [string(defaultValue: '', description: '', name: 'Give me a value')]
+				script {	
+					input message: 'Need some input', parameters: [string(defaultValue: '', description: '', name: 'Give me a value')]
+				}
 			}
 		}
         stage('Build') { 
