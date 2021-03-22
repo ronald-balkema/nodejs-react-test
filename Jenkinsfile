@@ -13,6 +13,8 @@ pipeline {
             steps {
 				sh 'df'
 				sh 'ping -c 3 www.google.com'
+				
+				input message: "Approve build?" submitter: "admin_group"
                 sh 'npm install' 
             }
         }
