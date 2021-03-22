@@ -9,14 +9,16 @@ pipeline {
         CI = 'true'
     }
     stages {
+		stage('Wait') {
+			input message: "Approve build?"
+		}
         stage('Build') { 
             steps {
 				sh 'df'
 				sh 'ping -c 3 www.google.com'
-				
-				input message: "Approve build?" submitter: "admin_group"
-                sh 'npm install' 
+				sh 'npm install'		
             }
         }
+		
     }
 }
